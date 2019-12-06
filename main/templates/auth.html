@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+</head>
+<body>
+<form method="post" style="display: flex; flex-direction: column; width: 350px">
+    {% csrf_token %}
+    <label for="LoginFiled">Логин:</label>
+    <input id="LoginFiled" name="username" type="text">
+    <label for="PasswordFiled">Пароль:</label>
+    <input id="PasswordFiled" name="password" type="password">
+    <button type="submit">Войти</button>
+</form>
+{% if err %}
+    <h5>{{ err }}</h5>
+{% endif %}
+</body>
+</html>
