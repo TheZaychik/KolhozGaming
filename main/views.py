@@ -5,13 +5,12 @@ from main import forms
 from main import models
 
 
-@login_required(login_url='/auth/')
 def rates(request):
     userList = models.User.objects.all()
     scoreList = []
     for u in userList:
         scoreList.append(
-            'Username: ' + u.username + '<br> Score: ' + str(models.PlayerScore.objects.get(user_id=u.id).UserScore))
+            'Никнейм: ' + u.username + '<br> Кол-во очков: ' + str(models.PlayerScore.objects.get(user_id=u.id).UserScore))
     return render(request, 'rates.html', context={'scoreList': scoreList})
 
 

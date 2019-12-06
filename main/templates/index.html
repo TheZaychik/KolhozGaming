@@ -1,17 +1,8 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <script type="javascript" src="{% static 'js/index.js%' %}"></script>
-    <meta charset="UTF-8">
-    <title>Главная</title>
-</head>
-<body>
-<div style="text-align: center;">
-    <h1>Введите имя игрока...</h1>
-    <a type="button" href="{% url 'main:home' %}">Начать</a>
-
-</div>
-</body>
-</html>
+{% block content %}
+    <div style="text-align: center;">
+        <h3>Ну шо, колхозник, поиграем?</h3>
+        <a class="btn btn-primary" href="{% url 'main:home' %}">Конечно!</a>
+    </div>
+{% endblock %}

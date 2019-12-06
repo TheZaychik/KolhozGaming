@@ -1,20 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'base.html' %}
+{% block title %}
     <title>Авторизация</title>
-</head>
-<body>
-<form method="post" style="display: flex; flex-direction: column; width: 350px">
-    {% csrf_token %}
-    <label for="LoginFiled">Логин:</label>
-    <input id="LoginFiled" name="username" type="text">
-    <label for="PasswordFiled">Пароль:</label>
-    <input id="PasswordFiled" name="password" type="password">
-    <button type="submit">Войти</button>
-</form>
-{% if err %}
-    <h5>{{ err }}</h5>
-{% endif %}
-</body>
-</html>
+{% endblock %}
+{% block content %}
+<div class="container col-xl-5">
+    <form method="post">
+        {% csrf_token %}
+        <h5>Авторизация:</h5>
+        <div class="form-group">
+            <label for="LoginFiled">Никнейм:</label>
+            <input id="LoginFiled" class="form-control" name="username" type="text">
+        </div>
+        <div class="form-group">
+            <label for="Password1Filed">Пароль:</label>
+            <input id="Password1Filed" class="form-control" name="password" type="password">
+        </div>
+        <button type="submit" class="btn btn-primary">Войти</button>
+    </form>
+    {% if err %}
+        <div class="alert alert-danger" style="margin-top: 10px">{{ err }}</div>
+    {% endif %}
+</div>
+{% endblock %}

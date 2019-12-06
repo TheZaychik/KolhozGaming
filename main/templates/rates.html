@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
     <title>Топ колхозников</title>
-</head>
-<body>
-{% for s in scoreList %}
-    -------------
-    <br>
-    {{ s|safe }}
-    <br>
-{% endfor %}
-</body>
-</html>
+{% endblock %}
+{% block content %}
+    <div class="container col-xl-5">
+        <h5>Топ колхозников по очкам:</h5>
+        {% for s in scoreList %}
+            <div class="alert alert-info">
+                {{ s|safe }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

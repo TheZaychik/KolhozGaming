@@ -1,24 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
     <title>Регистрация</title>
-</head>
-<body>
-<form method="post" style="display: flex; flex-direction: column; width: 350px">
-    {% csrf_token %}
-    <label for="EmailFiled">Email:</label>
-    <input id="EmailFiled" name="email" type="email">
-    <label for="LoginFiled">Логин:</label>
-    <input id="LoginFiled" name="username" type="text">
-    <label for="Password1Filed">Пароль:</label>
-    <input id="Password1Filed" name="password1" type="password">
-    <label for="Password2Filed">Повторите пароль:</label>
-    <input id="Password2Filed" name="password2" type="password">
-    <button type="submit">Войти</button>
-</form>
-{% if err %}
-    <h5>{{ err }}</h5>
-{% endif %}
-</body>
-</html>
+{% endblock %}
+{% block content %}
+    <div class="container col-xl-5">
+        <form method="post">
+            {% csrf_token %}
+            <h5>Регистрация:</h5>
+            <div class="form-group">
+                <label for="EmailFiled">Email:</label>
+                <input id="EmailFiled" class="form-control" name="email" type="email">
+            </div>
+            <div class="form-group">
+                <label for="LoginFiled">Никнейм:</label>
+                <input id="LoginFiled" class="form-control" name="username" type="text">
+            </div>
+            <div class="form-group">
+                <label for="Password1Filed">Пароль:</label>
+                <input id="Password1Filed" class="form-control" name="password1" type="password">
+            </div>
+            <div class="form-group">
+                <label for="Password2Filed">Повторите пароль:</label>
+                <input id="Password2Filed" class="form-control" name="password2" type="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Создать аккаунт</button>
+        </form>
+        {% if err %}
+            <div class="alert alert-danger" style="margin-top: 10px">{{ err }}</div>
+        {% endif %}
+    </div>
+
+{% endblock %}
