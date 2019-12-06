@@ -1,9 +1,28 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from main import forms
+from main import models
 
+
+@login_required(login_url='/auth/')
+def end(request):   # TODO Сделать через request
+    obj = models.PlayerScore.objects.get(user_id=request.user.id)
+    obj.UserScore += 5
+    obj.save()
+    return redirect('/')
+
+
+@login_required(login_url='/auth/')
 def home(request):
     pass
+
+
+@login_required(login_url='/auth/')
+def log_out(request):
+    logout(request)
+    return redirect('/')
+
 
 def auth(request):
     if request.method == 'POST':
@@ -14,11 +33,6 @@ def auth(request):
         else:
             return render(request, 'auth.html', context={'err': 'Ошибка входа'})
     return render(request, 'auth.html')
-
-
-def log_out(request):
-    logout(request)
-    return redirect('/')
 
 
 def register(request):
