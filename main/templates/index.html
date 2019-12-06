@@ -3,16 +3,19 @@
 
 <html lang="en">
 <head>
-    <script type="javascript" src="{% static 'js/index.js%'%}"/>
+    <script type="javascript" src="{% static 'js/index.js'%}"></script>
     <meta charset="UTF-8">0
     <title>Главная</title>
 </head>
 <body>
+{{ request.user.username }}
+<a href="{% url 'main:log_out' %}"> Выход</a>
     <div style="text-align: center;">
             <form action="" method="post">
                 <h1>Введите имя игрока...</h1>
                 <input type="text">
             </form>
     </div>
+
 </body>
 </html>
