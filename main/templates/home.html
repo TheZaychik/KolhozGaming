@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Игра</title>
+        <script type="text/javascript" src="{% static 'js/phaser.min.js'%}">  </script>
+    <script type="text/javascript" src="{% static 'js/game.js'%}"></script>
+
+    <style>
+        #game_div {
+          width: 500px;
+          margin: auto;
+          margin-top: 50px;
+        }
+    </style>
+</head>
+<header>
+    <h2>Имя игрока: Лол</h2> <h2 id="Score"></h2>
+</header>
+<body>
+    <div id="game_div">
+
+    </div>
+
+</body>
+</html>
