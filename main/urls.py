@@ -4,5 +4,8 @@ from django.conf.urls import url
 
 app_name = 'main'
 urlpatterns = [
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('reg/', views.register, name='register'),
+    path('auth/', views.auth, name='auth'),
+    path('logout/', views.log_out, name='log_out'),
 ]
