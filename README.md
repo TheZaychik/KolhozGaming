@@ -1,5 +1,5 @@
-# KolhozGaming
-Выполнение колхозного задания с WorldSkills  
+# Kolhoz Gaming Inc.
+Выполнение колхозного задания с WorldSkills.  
 *В России 2 проблемы - дураки и WorldSkills (c)*  
 ```
 $ pip3 list
