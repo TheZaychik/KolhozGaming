@@ -3,16 +3,15 @@
 
 <html lang="en">
 <head>
-    <script type="javascript" src="{% static 'js/index.js%'%}"></script>
+    <script type="javascript" src="{% static 'js/index.js%' %}"></script>
     <meta charset="UTF-8">
     <title>Главная</title>
 </head>
 <body>
-    <div style="text-align: center;">
-                <h1>Введите имя игрока...</h1>
+<div style="text-align: center;">
+    <h1>Введите имя игрока...</h1>
+    <a type="button" href="{% url 'main:home' %}">Начать</a>
 
-                <input type="submit" value="Начать">
-
-    </div>
+</div>
 </body>
 </html>

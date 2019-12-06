@@ -6,6 +6,16 @@ from main import models
 
 
 @login_required(login_url='/auth/')
+def rates(request):
+    userList = models.User.objects.all()
+    scoreList = []
+    for u in userList:
+        scoreList.append(
+            'Username: ' + u.username + '<br> Score: ' + str(models.PlayerScore.objects.get(user_id=u.id).UserScore))
+    return render(request, 'rates.html', context={'scoreList': scoreList})
+
+
+@login_required(login_url='/auth/')
 def end(request):  # TODO Сделать через request
     obj = models.PlayerScore.objects.get(user_id=request.user.id)
     obj.UserScore += 5
