@@ -6,7 +6,7 @@ from main import models
 
 
 @login_required(login_url='/auth/')
-def end(request):   # TODO Сделать через request
+def end(request):  # TODO Сделать через request
     obj = models.PlayerScore.objects.get(user_id=request.user.id)
     obj.UserScore += 5
     obj.save()
@@ -15,7 +15,7 @@ def end(request):   # TODO Сделать через request
 
 @login_required(login_url='/auth/')
 def home(request):
-    pass
+    return render(request, 'home.html', context={'username': request.user.username})
 
 
 @login_required(login_url='/auth/')
