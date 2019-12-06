@@ -7,7 +7,7 @@ game_state.main.prototype = {
     preload: function() {
         // загрузка всей необходимой статики
          this.game.stage.backgroundColor = '#39cf20';
-         this.game.load.image('hero', 'static/img/Hero.png');
+         this.game.load.image('hero', '/static/img/Hero.png');
     },
 
     create: function() {
